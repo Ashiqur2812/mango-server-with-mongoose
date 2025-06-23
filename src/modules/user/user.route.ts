@@ -3,10 +3,10 @@ import { registerUser, getAllUser, getSingleUser, updateUser, deleteUser } from 
 
 const userRoute = Router();
 
-userRoute.get('/all-user', getAllUser);
-userRoute.get('/user/:userId', getSingleUser);
-userRoute.post('/user', registerUser);
-userRoute.patch('/update-user/:userId', updateUser);
-userRoute.delete('/delete-user/:userId', deleteUser);
+userRoute.get('/', getAllUser);
+userRoute.get('/:userId', getSingleUser);
+userRoute.post('/', registerUser);
+userRoute.patch('/:userId', updateUser);
+userRoute.delete('/:userId', deleteUser);
 
 export default userRoute;
