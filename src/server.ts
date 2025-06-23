@@ -2,11 +2,13 @@ import express, { Application, Request, Response } from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
 import config from './config';
+import userRoute from './modules/user/user.route';
 
 const app: Application = express();
 
 app.use(cors());
 app.use(express.json());
+app.use(userRoute)
 
 app.get('/', (req: Request, res: Response) => {
     res.status(200).send({
