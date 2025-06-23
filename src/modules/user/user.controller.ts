@@ -4,6 +4,7 @@ import User from "./user.model";
 const registerUser = async (req: Request, res: Response) => {
     try {
         const payload = req.body;
+        // const data = await User.create(payload)
         const user = new User(payload);
         const data = await user.save();
 
@@ -85,7 +86,8 @@ const deleteUser = async (req: Request, res: Response) => {
 
         res.status(200).json({
             success: true,
-            message: 'User deleted successfully'
+            message: 'User deleted successfully',
+            user
         });
     } catch (error) {
         res.status(500).json({
