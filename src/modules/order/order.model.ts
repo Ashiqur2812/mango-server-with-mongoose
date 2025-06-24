@@ -1,7 +1,7 @@
 import { model, Schema } from "mongoose";
 import { IOrder } from "./order.interface";
 
-const orderAddress = new Schema({
+const orderAddressSchema = new Schema({
     zipCode: String,
     state: String,
     country: String,
@@ -29,7 +29,10 @@ const orderSchema = new Schema<IOrder>({
         required: true,
         min: [0, '{VALUE} is not a valid number']
     },
-    address: orderAddress,
+    address: {
+        type: orderAddressSchema,
+        required: true
+    },
     status: {
         type: String,
         required: true
@@ -41,4 +44,4 @@ const orderSchema = new Schema<IOrder>({
 );
 
 const Order = model('Order', orderSchema);
-export default Order
+export default Order;
