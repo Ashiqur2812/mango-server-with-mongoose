@@ -63,7 +63,8 @@ const updateUser = async (req: Request, res: Response) => {
     try {
         const userId = req.params.userId;
         const updatedBody = req.body;
-        const data = await User.findByIdAndUpdate(userId, updatedBody, { new: true });
+        const data = await User.findByIdAndUpdate(userId, updatedBody,
+            { new: true, runValidators: true });
 
         res.status(201).json({
             success: true,

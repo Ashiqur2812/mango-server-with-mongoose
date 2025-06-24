@@ -31,7 +31,8 @@ const mangoSchema = new Schema<IMango>({
     origin: {
         type: String,
         required: true,
-        trim: true
+        trim: true,
+        default: 'Unknown'
     },
     season: {
         type: String,

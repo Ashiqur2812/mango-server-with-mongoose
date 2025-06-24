@@ -62,7 +62,8 @@ const updateMango = async (req: Request, res: Response) => {
     try {
         const mangoId = req.params.mangoId;
         const updatedBody = req.body;
-        const data = await Mango.findByIdAndUpdate(mangoId, updatedBody, { new: true });
+        const data = await Mango.findByIdAndUpdate(mangoId, updatedBody,
+            { new: true, runValidators: true });
 
         res.status(201).json({
             success: true,

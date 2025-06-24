@@ -1,6 +1,6 @@
 import { Router } from "express";
 import userRoute from "../user/user.route";
-import { mangoRoute } from "../mango/mango.route";
+import mangoRoute from "../mango/mango.route";
 
 const routes = Router();
 
